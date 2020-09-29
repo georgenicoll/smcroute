@@ -24,9 +24,11 @@ RUN ./autogen.sh && \
 
 WORKDIR /
 
+COPY smcroute-eth0-cni-bridge.conf /etc/smcroute.conf
+
 RUN apk del g++ && \
     apk del gcc
 
-#ENTRYPOINT [ "bash" ]
-ENTRYPOINT [ "/usr/local/sbin/smcrouted", "-n", "-N", "-l", "debug" ]
+ENTRYPOINT [ "bash" ]
+#ENTRYPOINT [ "/usr/local/sbin/smcrouted", "-n", "-N", "-l", "debug" ]
 

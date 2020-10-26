@@ -24,7 +24,8 @@ RUN ./autogen.sh && \
 
 WORKDIR /
 
-COPY smcroute-eth0-cni-bridge.conf /etc/smcroute.conf
+#COPY smcroute-eth0-cni-bridge.conf /etc/smcroute.conf
+COPY smcroute-eth0-l2-bridge.conf /etc/smcroute.conf
 
 RUN apk del g++ && \
     apk del gcc

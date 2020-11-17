@@ -2,6 +2,7 @@ FROM alpine
 
 RUN apk update && \
     apk add bash && \
+    apk add tcpdump && \
     apk add automake && \
     apk add autoconf && \
     apk add gettext && \
@@ -25,8 +26,8 @@ RUN ./autogen.sh && \
 WORKDIR /
 
 #COPY smcroute-eth0-cni-bridge.conf /etc/smcroute.conf
-COPY smcroute-eth0-l2-bridge.conf /etc/smcroute.conf
-#COPY smcroute-eth0-l3-bridge.conf /etc/smcroute.conf
+#COPY smcroute-eth0-l2-bridge.conf /etc/smcroute.conf
+COPY smcroute-eth0-l3-bridge.conf /etc/smcroute.conf
 
 RUN apk del g++ && \
     apk del gcc
